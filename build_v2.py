@@ -119,24 +119,21 @@ HEROES = [
          loc="1 HORMUZ \u00b7 MIDDLE EAST \u00b7 WAR",
          head="Iran vows all means to break US blockade",
          deck=("Tehran says it will use every means against US aggression, "
-               "after a weekend of tanker hits and drone claims in the Strait."),
-         src="Reuters \u00b7 AP"),
+               "after a weekend of tanker hits and drone claims in the Strait.")),
     dict(bar="UKRAINE: STRIKES KILL 12", badge="12 KILLED", badge_c=GREEN,
          tag="CONFIRMED", img="flat02_dymer.png",
          caption="Apartment block hit in Dymer",
          loc="2 DYMER & SLOVIANSK \u00b7 EUROPE \u00b7 WAR",
          head="Russian strikes kill 12 in Kyiv region and Donetsk",
          deck=("Drones and missiles hit an apartment block in Dymer and "
-               "Sloviansk; at least 12 dead, dozens hurt."),
-         src="Reuters \u00b7 AFP"),
+               "Sloviansk; at least 12 dead, dozens hurt.")),
     dict(bar="WASHINGTON: TALKS SIGNAL", badge="23 NOV", badge_c=GOLD,
          tag="REPORTED", img="flat03_whitehouse.png",
          caption="White House, Washington",
          loc="3 WASHINGTON \u00b7 AMERICAS \u00b7 DIPLOMACY",
          head="Trump: Iran talks may run to year's end",
          deck=("President signals talks with Iran could continue until the end "
-               "of the year; the war has cost $48.3bn, the Pentagon said last week."),
-         src="Reuters \u00b7 Bloomberg"),
+               "of the year; the war has cost $48.3bn, the Pentagon said last week.")),
 ]
 
 CARDS = [
@@ -371,9 +368,6 @@ def build():
         for ln in dlines:
             d.text((x, y), ln, font=df, fill=INK)
             y += 13
-        # source
-        f = font(SERIF_I, 10)
-        d.text((x, 400), h["src"], font=f, fill=GREY)
 
     # ---- small cards, two rows of five (164 px tall so 3-line decks fit)
     rows_y = [408, 578]
