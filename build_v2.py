@@ -87,7 +87,12 @@ def cover(img, w, h):
 
 
 def load_thumb(name):
-    p = os.path.join(V1, name) if name.startswith("thumb") else os.path.join(HERE, name)
+    if name.startswith("thumb"):
+        p = os.path.join(V1, name)
+    elif name.startswith("flat"):
+        p = os.path.join(HERE, "thumbs2d", name)
+    else:
+        p = os.path.join(HERE, name)
     return Image.open(p).convert("RGB")
 
 
@@ -109,7 +114,7 @@ TABS = ["MIDDLE EAST 5", "EUROPE 5", "SE ASIA 5", "EAST ASIA 5",
 
 HEROES = [
     dict(bar="HORMUZ: BLOCKADE DEFIED", badge="23 NOV", badge_c=GREEN,
-         tag="2 TANKERS", img="thumb01.png",
+         tag="2 TANKERS", img="flat01_hormuz.png",
          caption="Tankers ablaze near Hormuz",
          loc="1 HORMUZ \u00b7 MIDDLE EAST \u00b7 WAR",
          head="Iran vows all means to break US blockade",
@@ -117,7 +122,7 @@ HEROES = [
                "after a weekend of tanker hits and drone claims in the Strait."),
          src="Reuters \u00b7 AP"),
     dict(bar="UKRAINE: STRIKES KILL 12", badge="12 KILLED", badge_c=GREEN,
-         tag="CONFIRMED", img="thumb02.png",
+         tag="CONFIRMED", img="flat02_dymer.png",
          caption="Apartment block hit in Dymer",
          loc="2 DYMER & SLOVIANSK \u00b7 EUROPE \u00b7 WAR",
          head="Russian strikes kill 12 in Kyiv region and Donetsk",
@@ -125,7 +130,7 @@ HEROES = [
                "Sloviansk; at least 12 dead, dozens hurt."),
          src="Reuters \u00b7 AFP"),
     dict(bar="WASHINGTON: TALKS SIGNAL", badge="23 NOV", badge_c=GOLD,
-         tag="REPORTED", img="new01.png",
+         tag="REPORTED", img="flat03_whitehouse.png",
          caption="White House, Washington",
          loc="3 WASHINGTON \u00b7 AMERICAS \u00b7 DIPLOMACY",
          head="Trump: Iran talks may run to year's end",
@@ -135,51 +140,51 @@ HEROES = [
 ]
 
 CARDS = [
-    dict(bar="ANTALYA: COP31 FALLOUT", img="thumb04.png",
+    dict(bar="ANTALYA: COP31 FALLOUT", img="flat04_cop31.png",
          loc="ANTALYA, WORLD \u00b7 CLIMATE",
          head="World reacts to COP31 collapse",
          deck=("Talks closed on Sunday with no fossil-fuel deal; capitals trade "
                "blame and look to COP32 in Ethiopia.")),
-    dict(bar="RIYADH: AFTER THE STRIKE", img="thumb06.png",
+    dict(bar="RIYADH: AFTER THE STRIKE", img="flat05_piftower.png",
          loc="RIYADH, MIDDLE EAST \u00b7 WAR",
          head="Riyadh counts cost of PIF Tower hit",
          deck=("Thursday's strike blew out windows across eight floors of the "
                "80-storey tower; investors told to leave as the district stays shut.")),
-    dict(bar="WASHINGTON: WAR POWERS", img="thumb07.png",
+    dict(bar="WASHINGTON: WAR POWERS", img="flat06_senate.png",
          loc="WASHINGTON, AMERICAS \u00b7 POLITICS",
          head="Senate's Iran vote still reverberates",
          deck=("Last Thursday's 51\u201348 rejection of a war-powers curb leaves "
                "Trump free to fight on; Democrats vow to return to it.")),
-    dict(bar="THE HAGUE: ICJ FALLOUT", img="thumb08.png",
+    dict(bar="THE HAGUE: ICJ FALLOUT", img="flat07_icj.png",
          loc="THE HAGUE, WORLD \u00b7 JUSTICE",
          head="Rohingya press for ICJ ruling to bite",
          deck=("After last Thursday's verdict that Myanmar committed genocide, "
                "survivors and states demand enforcement and returns.")),
-    dict(bar="NEW DELHI: VOTER PURGE", img="thumb09.png",
+    dict(bar="NEW DELHI: VOTER PURGE", img="flat08_ballot.png",
          loc="NEW DELHI, EAST ASIA \u00b7 POLITICS",
          head="Voter-list purge sparks detention fears in India",
          deck=("Muslim residents face detention and deportation threats to "
                "Bangladesh after names vanish from the rolls; youth protests spread.")),
-    dict(bar="NIGERIA: BOAT SINKS", img="thumb10.png",
+    dict(bar="NIGERIA: BOAT SINKS", img="flat09_boat.png",
          loc="NIGERIA, AFRICA \u00b7 DISASTER",
          head="Funeral boat sinks in Nigeria, 24 dead",
          deck="Vessel carrying a funeral party goes down; at least 24 killed."),
-    dict(bar="BRUSSELS: NATO READINESS", img="new02.png",
+    dict(bar="BRUSSELS: NATO READINESS", img="flat10_nato.png",
          loc="BRUSSELS, EUROPE \u00b7 DEFENCE",
          head="NATO allies lift emergency readiness",
          deck=("Alliance lifts emergency readiness as the Gulf war and Baltic "
                "incidents stretch its forces.")),
-    dict(bar="BALTIC: SHIP BURNS", img="new03.png",
+    dict(bar="BALTIC: SHIP BURNS", img="flat11_baltic.png",
          loc="BALTIC SEA, EUROPE \u00b7 WAR",
          head="Russian cargo ship burns in the Baltic",
          deck=("Fire engulfs a Russian cargo vessel; cause unclear as Baltic "
                "tensions rise.")),
-    dict(bar="WASHINGTON: AI CHIPS", img="new04.png",
+    dict(bar="WASHINGTON: AI CHIPS", img="flat12_chip.png",
          loc="WASHINGTON, AMERICAS \u00b7 TECH",
          head="US spy chief: China got advanced AI chips",
          deck=("Intelligence says advanced chips reached China despite export "
                "curbs, raising security alarms.")),
-    dict(bar="HAITI: HUNGER", img="new05.png",
+    dict(bar="HAITI: HUNGER", img="flat13_haiti.png",
          loc="PORT-AU-PRINCE, AMERICAS \u00b7 AID",
          head="UN warns millions in Haiti face acute hunger",
          deck=("Aid agencies warn millions face acute hunger as gangs choke "
